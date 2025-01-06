@@ -1,4 +1,4 @@
-package com.alura.appium.test;
+package com.alura.appium.steps;
 
 
 import com.alura.appium.core.BaseTest;
@@ -28,6 +28,7 @@ public class FeatureConfigurarPDV extends BaseTest {
     public void inicializarAppium() {
         driver = DriverFactory.getDriver();
     }
+
 
 
 

@@ -1,6 +1,8 @@
 package com.alura.appium.core;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -8,12 +10,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
+@Slf4j
 public class DriverFactory {
 
-
-
+    public static AppiumDriverLocalService server;
     public static AppiumDriver driver;
-
 
 
     public static AppiumDriver getDriver() {
@@ -30,10 +31,11 @@ public class DriverFactory {
         configuracoes.setCapability("platformName", "Android"); //
         configuracoes.setCapability("appium:automationName", "UiAutomator2");
         configuracoes.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
-        configuracoes.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
-        configuracoes.setCapability("appium:app", "D:\\appium\\src\\main\\resources\\app-play_store-debug.apk"); // base path do apk
+//        configuracoes.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
+        configuracoes.setCapability("appium:app", ""); // base path do apk
         configuracoes.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
 //        configuracoes.setCapability("appium:fullReset", "true");
+
         URI urlConexao = null;
         try {
             urlConexao = new URI("http://127.0.0.1:4723");
@@ -51,7 +53,7 @@ public class DriverFactory {
 
     }
 
-    public static void KillServer() {
+    public static void KillDriver() {
         if (driver != null) {
             driver.quit();
             driver = null;

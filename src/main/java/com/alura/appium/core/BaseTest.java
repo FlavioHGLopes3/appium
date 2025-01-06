@@ -18,7 +18,7 @@ public class BaseTest {
     @After // encerra a sessao appium depois de rodar os testes
     public void encerrarAppium() {
         gerarScreenShot();
-        DriverFactory.KillServer();
+        DriverFactory.KillDriver();
     }
 
     public void gerarScreenShot()  {

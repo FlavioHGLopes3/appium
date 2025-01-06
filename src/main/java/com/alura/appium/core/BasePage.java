@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -33,6 +35,11 @@ public class BasePage {
 
     public void scrollUp(){
         scroll(0.9, 0.1);
+    }
+
+    public void elementPresence(By appiumBy){
+        new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(appiumBy));
     }
 
     public void swipeElement(WebElement element, double inicio, double fim) {
@@ -68,7 +75,7 @@ public class BasePage {
         genericSwipe(x, start_y, x, end_y);
     }
 
-    public boolean isElementEnabled(By appiumBy) {
+    public boolean isElementEnabled(By appiumBy) { // verifica se o elemento está presente na tela
         WebElement element = driver.findElement(appiumBy);
         return element.isEnabled();
     }
