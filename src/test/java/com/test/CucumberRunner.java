@@ -1,4 +1,4 @@
-package com.alura.appium;
+package com.test;
 
 import org.junit.runner.RunWith;
 
@@ -7,11 +7,11 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = { "pretty" },
-        features = {"src/main/resources/Features"},
+        plugin = { "progress", "html:target/cucumber-report.html" },
+        features = {"src/test/resources/features"},
         glue = {"Steps"}
 )
 
-public class CucumberTest {
+public class CucumberRunner {
 
 }
