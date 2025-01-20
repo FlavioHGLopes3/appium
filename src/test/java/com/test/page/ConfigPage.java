@@ -1,15 +1,37 @@
-package com.alura.appium.page;
+package com.test.page;
 
-import com.alura.appium.core.BasePage;
-import com.alura.appium.core.DriverFactory;
+import com.test.DriverFactory;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-// classe page nao deve ter assert, classe test nao deve ter locators
+@Getter
+@NoArgsConstructor
 public class ConfigPage extends BasePage {
+
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.widget.Button")
+    private WebElement botaoConfigurarIP;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[2]/android.widget.Button")
+    private WebElement botaoPDV;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[3]/android.widget.Button")
+    private WebElement botaoCarregarConfigPista;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[4]/android.widget.Button")
+    private WebElement botaoLimparConfiguracoes;
+
+    public void validatePage () {
+        validateElementPresence("//android.widget.TextView[@text=\"Configurações\"]");
+    }
+
 
 
     public void pressionarBotaoConfigurarIP() {

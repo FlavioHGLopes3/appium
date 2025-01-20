@@ -1,7 +1,6 @@
-package com.alura.appium.core;
+package com.test;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -13,7 +12,7 @@ import java.time.Duration;
 @Slf4j
 public class DriverFactory {
 
-    public static AppiumDriverLocalService server;
+
     public static AppiumDriver driver;
 
 
@@ -32,7 +31,7 @@ public class DriverFactory {
         configuracoes.setCapability("appium:automationName", "UiAutomator2");
         configuracoes.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
 //        configuracoes.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
-        configuracoes.setCapability("appium:app", ""); // base path do apk
+        configuracoes.setCapability("appium:app", "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk"); // base path do apk
         configuracoes.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
 //        configuracoes.setCapability("appium:fullReset", "true");
 

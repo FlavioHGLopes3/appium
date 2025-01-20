@@ -1,6 +1,5 @@
-package com.alura.appium.page;
+package com.test.page;
 
-import com.alura.appium.core.BasePage;
 import io.appium.java_client.AppiumBy;
 
 

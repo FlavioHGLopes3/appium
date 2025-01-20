@@ -1,6 +1,5 @@
 package com.test;
 
-import com.alura.appium.core.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -14,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 public class Hooks {
 
     private static AppiumDriverLocalService server;
-    private static AppiumDriver driver;
 
     @BeforeAll
     public static void setUpServer (){
@@ -40,7 +38,7 @@ public class Hooks {
     public void setUpDriver(){
         log.info("Inicializando sessao driver");
 
-        driver = DriverFactory.getDriver();
+        AppiumDriver driver = DriverFactory.getDriver();
     }
 
     @After
