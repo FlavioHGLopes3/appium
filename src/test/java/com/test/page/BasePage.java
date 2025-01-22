@@ -36,11 +36,11 @@ public class BasePage {
         scroll(0.1, 0.9);
     }
 
-    public void scrollUp(){
+    public static void scrollUp(){
         scroll(0.9, 0.1);
     }
 
-    public void elementPresence(By appiumBy){
+    public static void elementPresence(By appiumBy){
         new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(appiumBy));
     }
@@ -88,6 +88,42 @@ public class BasePage {
         new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(30))
                 .until(ExpectedConditions
                         .presenceOfElementLocated(By.xpath(xpath)));
+
+    }
+
+    public static boolean toastGetMessage(String mensagemEsperada) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            WebElement toast = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[1]"))
+            );
+
+            String mensagemToast = toast.getText();
+
+            return mensagemToast.equals(mensagemEsperada);
+
+        } catch (Exception e) {
+            System.out.println("Toast não encontrado: " + e.getMessage());
+            return false;
+        }
+
+    }
+
+    public static boolean toastContainsMessage(String mensagemEsperada) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            WebElement toast = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[1]"))
+            ); // necessário implementar o toast de tef inválido.
+
+            String mensagemToast = toast.getText();
+
+            return mensagemToast.contains(mensagemEsperada);
+
+        } catch (Exception e) {
+            System.out.println("Toast não encontrado: " + e.getMessage());
+            return false;
+        }
 
     }
 

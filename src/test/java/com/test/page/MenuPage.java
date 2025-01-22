@@ -5,6 +5,9 @@ import io.appium.java_client.AppiumBy;
 
 public class MenuPage extends BasePage {
 
+    public void validatePage () {
+        validateElementPresence("//android.widget.TextView[@text=\"WebPostoPay\"]");
+    }
 
 
     public void acessarProdutos() {

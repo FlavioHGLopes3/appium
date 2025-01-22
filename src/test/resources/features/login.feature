@@ -7,10 +7,7 @@ Funcionalidade: realizando login
   de usuário estiverem corretas
 
 
-  Cenario: Login após configuração incorreta do gerenciador_tef PDV
-    Dado que o pdv esteja configurado incorretamente
-    Quando informo o usuario e senha
-    Então é exibido um toast de "gerenciador tef incorreto"
+
 
   Cenario: Login após configuração incorreta do gerenciador_tef PDV
     Dado que o pdv esteja configurado incorretamente

@@ -63,7 +63,7 @@ public class ConfigPage extends BasePage {
         clicar(AppiumBy.androidUIAutomator("new UiSelector().text(\"PDV\")"));
     }
 
-    public void selecionarPDVporTEF(String nomePDV) {
+    public void selecionarPDV(String nomePDV) {
         WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10));
 
         String xpath = String.format("//android.widget.TextView[@text=\"PAY ROTINA %s\"]", nomePDV);

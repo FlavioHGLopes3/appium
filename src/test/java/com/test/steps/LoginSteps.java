@@ -7,6 +7,8 @@ import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import lombok.extern.slf4j.Slf4j;
 
+import static org.junit.Assert.assertTrue;
+
 @Slf4j
 public class LoginSteps {
     @Dado("que o pdv esteja configurado incorretamente")
@@ -17,22 +19,27 @@ public class LoginSteps {
         LoginActions.acessarAlterarConfiguracoes();
         ConfigActions.validatePage();
         ConfigActions.configurarIP("192.168.018.172","8081");
-        ConfigActions.selecionarPDVporTEF("GETNET");
+        ConfigActions.selecionarPDVporTEF("SAFRAPAY");
         ConfigActions.pressionarBotaoVoltarTelaLogin();
-        LoginActions.realizarLogin("3","1");
+
 
     }
     @Quando("informo o usuario e senha")
     public void informo_o_usuario_e_senha() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        LoginActions.realizarLogin("3","1");
     }
+
+
+//    @Então("é exibido um toast de {string}>")
+//    public void e_exibido_um_toast_de_gerenciador_tef_incorreto(String mensagemEsperada) {
+//
+//    }
+
+
     @Então("é exibido um toast de {string}")
-    public void é_exibido_um_toast_de(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void e_exibido_um_toast_de_gerenciado_tef_incorreto(String mensagemEsperada) {
+        assertTrue("A mensagem de Configure PDV não foi exibida corretamente", LoginActions.toastContainsMessage(mensagemEsperada));
     }
-
-
 
 }
