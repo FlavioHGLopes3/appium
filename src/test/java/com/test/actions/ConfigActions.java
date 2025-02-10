@@ -10,18 +10,18 @@ import static com.test.page.BasePage.digitar;
 
 public class ConfigActions {
 
-    static ConfigPage configPage = new ConfigPage();
+
     public static ConfigPage configPage(){
         return MasterPageFactory.getPage(ConfigPage.class);
     }
 
     public static void validatePage() {
-        configPage.validatePage();
+        configPage().validatePage();
     }
 
     public static void configurarIP(String ip, String porta) {
 
-        configPage.pressionarBotaoConfigurarIP();
+        configPage().pressionarBotaoConfigurarIP();
 
         // Divide o IP pelos pontos
         String[] ipParts = ip.split("\\.");
@@ -33,18 +33,18 @@ public class ConfigActions {
         }
 
         // Preenche o campo da porta (assumindo que é o 4º campo de EditText)
-        digitar(
+        digitar(,
                 AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(4)"),
                 porta
         );
 
-        configPage.pressionarBotaoConfirmarIP();
+        configPage().pressionarBotaoConfirmarIP();
 
     }
 
     public static void selecionarPDVporTEF(String nomePDV) {
-        configPage.pressionarBotaoPDV();
-        configPage.selecionarPDV(nomePDV);
+        configPage().pressionarBotaoPDV();
+        configPage().selecionarPDV(nomePDV);
 
         BasePage.scrollUp();
         clicar(AppiumBy

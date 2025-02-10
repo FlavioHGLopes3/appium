@@ -48,7 +48,7 @@ public class DriverFactory {
             throw new RuntimeException(e);
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
     }
 

@@ -21,6 +21,7 @@ public class MasterPageFactory {
         }
 
         return page;
+        // em qualquer classe actions deve ser utilizada esse metodo para instanciar as pages
     }
 
 

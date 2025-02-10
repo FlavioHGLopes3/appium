@@ -4,6 +4,14 @@ import com.test.page.BasePage;
 import com.test.page.LoginPage;
 import com.test.page.MasterPageFactory;
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static com.test.DriverFactory.getDriver;
 
 public class LoginActions extends BasePage {
 
@@ -17,7 +25,7 @@ public class LoginActions extends BasePage {
 
 
     public static void acessarAlterarConfiguracoes() {
-        clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Alterar configurações\"]"));
+        clicar(loginPage().getBotaoAlterarConfiguracoes());
     }
 
     public static void realizarLogin(String usuario, String senha) {
@@ -26,12 +34,41 @@ public class LoginActions extends BasePage {
         clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Entrar\"]"));
     }
 
-    public static boolean verificarConfigurePDV() {
-        return toastGetMessage("Configure PDV");
+    public static boolean toastConfigurePDV(String mensagemEsperada) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(50));
+            WebElement toast = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text=\"" + mensagemEsperada + "\"]"))
+            );
+
+            String mensagemToast = toast.getText();
+
+            return mensagemToast.contains(mensagemEsperada);
+
+        } catch (Exception e) {
+            System.out.println("Toast não encontrado: " + e.getMessage());
+            return false;
+        }
+
     }
 
-    public static boolean verificarToastTEFInvalidoAoLogar() {
-        return toastGetMessage("TEF INVALIDO");
+    public static boolean toastLoginInvalido(String mensagemEsperada) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(50));
+            WebElement toast = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text=\"" + mensagemEsperada + "\"]"))
+            );
+
+            String mensagemToast = toast.getText();
+
+            return mensagemToast.contains(mensagemEsperada);
+
+        } catch (Exception e) {
+            System.out.println("Toast não encontrado: " + e.getMessage());
+            return false;
+        }
+
     }
+
 
 }

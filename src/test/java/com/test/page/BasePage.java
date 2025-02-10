@@ -23,6 +23,10 @@ public class BasePage {
         getDriver().findElement(appiumBy).click();
     }
 
+    public static void clicar(WebElement element) { // pode utilizar os elementos mapeados diretamente na page sem precisar informar o xpath
+        element.click();
+    }
+
 
     public static void digitar (By appiumBy, String texto  ) {
         getDriver().findElement(appiumBy).sendKeys(texto);
@@ -93,7 +97,7 @@ public class BasePage {
 
     public static boolean toastGetMessage(String mensagemEsperada) {
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
             WebElement toast = wait.until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[1]"))
             );
@@ -111,10 +115,10 @@ public class BasePage {
 
     public static boolean toastContainsMessage(String mensagemEsperada) {
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
             WebElement toast = wait.until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[1]"))
-            ); // necessário implementar o toast de tef inválido.
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text=\"" + mensagemEsperada + "\"]"))
+            );
 
             String mensagemToast = toast.getText();
 

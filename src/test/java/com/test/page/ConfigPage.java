@@ -42,7 +42,7 @@ public class ConfigPage extends BasePage {
         // Divide o IP pelos pontos
         String[] ipParts = ip.split("\\.");
         for (int i = 0; i < ipParts.length; i++) {
-            digitar(
+            digitar(,
                     AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(" + i + ")"),
                     ipParts[i]
             );

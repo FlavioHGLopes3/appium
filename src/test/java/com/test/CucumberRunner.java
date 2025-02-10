@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = { "progress", "html:target/cucumber-report.html" },
         features = {"src/test/resources/features"},
-        glue = {"com.test"}
+        glue = {"com.test"},
+        tags = "@Emulator"
 )
 
 

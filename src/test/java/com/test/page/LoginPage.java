@@ -17,6 +17,9 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(xpath = "new UiSelector().className(\"android.widget.EditText\").instance(1)")
     private WebElement campoSenha;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Alterar configurações\"]")
+    private WebElement botaoAlterarConfiguracoes;
+
     public void validatePage () {
         validateElementPresence("(//android.widget.ImageView[@content-desc=\"Clean Confirm\"])[2]");
     }
