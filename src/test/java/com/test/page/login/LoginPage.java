@@ -1,5 +1,6 @@
-package com.test.page;
+package com.test.page.login;
 
+import com.test.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

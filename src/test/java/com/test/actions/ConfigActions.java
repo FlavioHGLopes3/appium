@@ -1,7 +1,7 @@
 package com.test.actions;
 
 import com.test.page.BasePage;
-import com.test.page.ConfigPage;
+import com.test.page.config.ConfigPage;
 import com.test.page.MasterPageFactory;
 import io.appium.java_client.AppiumBy;
 
@@ -33,7 +33,7 @@ public class ConfigActions {
         }
 
         // Preenche o campo da porta (assumindo que é o 4º campo de EditText)
-        digitar(,
+        digitar(
                 AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(4)"),
                 porta
         );

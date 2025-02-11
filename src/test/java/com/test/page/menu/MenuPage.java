@@ -1,5 +1,6 @@
-package com.test.page;
+package com.test.page.menu;
 
+import com.test.page.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,9 +12,6 @@ public class MenuPage extends BasePage {
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Open Modal Drawer\"]")
     private WebElement menuDrawer;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"WebPostoPay\"]")
-    private WebElement tituloMenuPrincipal;
 
     @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"Botoes menu\"])[1]")
     private WebElement iconeAbastecimento;

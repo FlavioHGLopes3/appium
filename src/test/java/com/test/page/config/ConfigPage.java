@@ -1,6 +1,7 @@
-package com.test.page;
+package com.test.page.config;
 
 import com.test.DriverFactory;
+import com.test.page.BasePage;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import lombok.Getter;
@@ -42,7 +43,7 @@ public class ConfigPage extends BasePage {
         // Divide o IP pelos pontos
         String[] ipParts = ip.split("\\.");
         for (int i = 0; i < ipParts.length; i++) {
-            digitar(,
+            digitar(
                     AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(" + i + ")"),
                     ipParts[i]
             );

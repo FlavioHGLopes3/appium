@@ -2,7 +2,7 @@ package com.test.actions;
 
 import com.test.page.BasePage;
 import com.test.page.MasterPageFactory;
-import com.test.page.MenuPage;
+import com.test.page.menu.MenuPage;
 
 public class MenuPageActions extends BasePage {
 

@@ -1,7 +1,7 @@
 package com.test.actions;
 
 import com.test.page.BasePage;
-import com.test.page.LoginPage;
+import com.test.page.login.LoginPage;
 import com.test.page.MasterPageFactory;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
