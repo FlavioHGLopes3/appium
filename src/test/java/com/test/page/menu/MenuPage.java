@@ -28,11 +28,12 @@ public class MenuPage extends BasePage {
     @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"Botoes menu\"])[5]")
     private WebElement iconeOperacoes;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"WebPostoPay\"]")
+    private WebElement menuPageIdentifier;
 
     public void validatePage () {
         validateElementPresence("//android.widget.TextView[@text=\"WebPostoPay\"]");
     }
-
 
 
 }

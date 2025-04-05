@@ -95,6 +95,7 @@ public class BasePage {
 
     }
 
+
     public static boolean toastGetMessage(String mensagemEsperada) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));

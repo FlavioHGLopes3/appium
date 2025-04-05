@@ -30,3 +30,9 @@ Funcionalidade: realizando login
     Dado que o pdv esteja configurado corretamente
     Quando informo usuario e senha correto
     Então é exibido o menu inicial
+
+
+  Cenario: PDV não configurado com chave de transferencia bancaria
+    Dado que o pdv não esteja configurado com a chave de transferência bancária
+    Quando informo usuario e senha corretos e realizo o login
+    Então é exibido um toast de verificar o prazo padrão

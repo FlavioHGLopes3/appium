@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebElement;
+
 @Getter
 @NoArgsConstructor
 public class LoginPage extends BasePage {

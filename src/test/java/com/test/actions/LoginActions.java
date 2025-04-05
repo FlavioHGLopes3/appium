@@ -1,17 +1,15 @@
 package com.test.actions;
 
+import com.test.DriverFactory;
 import com.test.page.BasePage;
-import com.test.page.login.LoginPage;
 import com.test.page.MasterPageFactory;
+import com.test.page.login.LoginPage;
+import com.test.page.menu.MenuPage;
 import io.appium.java_client.AppiumBy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static com.test.DriverFactory.getDriver;
 
 public class LoginActions extends BasePage {
 
@@ -34,41 +32,25 @@ public class LoginActions extends BasePage {
         clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Entrar\"]"));
     }
 
-    public static boolean toastConfigurePDV(String mensagemEsperada) {
+
+
+    public static boolean isLoggedIn() {
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(50));
-            WebElement toast = wait.until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text=\"" + mensagemEsperada + "\"]"))
-            );
+            // Obtém a instância do MenuPage usando sua MasterPageFactory
+            MenuPage menuPage = MasterPageFactory.getPage(MenuPage.class);
 
-            String mensagemToast = toast.getText();
+            // Cria um wait explícito
+            WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10));
 
-            return mensagemToast.contains(mensagemEsperada);
+            // Verifica se o elemento está visível
+            return wait.until(ExpectedConditions.visibilityOf(menuPage.getMenuPageIdentifier())).isDisplayed();
 
         } catch (Exception e) {
-            System.out.println("Toast não encontrado: " + e.getMessage());
             return false;
         }
-
     }
 
-    public static boolean toastLoginInvalido(String mensagemEsperada) {
-        try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(50));
-            WebElement toast = wait.until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text=\"" + mensagemEsperada + "\"]"))
-            );
 
-            String mensagemToast = toast.getText();
-
-            return mensagemToast.contains(mensagemEsperada);
-
-        } catch (Exception e) {
-            System.out.println("Toast não encontrado: " + e.getMessage());
-            return false;
-        }
-
-    }
 
 
 }

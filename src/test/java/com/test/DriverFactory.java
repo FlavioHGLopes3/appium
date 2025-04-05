@@ -7,7 +7,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Duration;
 
 @Slf4j
 public class DriverFactory {
@@ -29,8 +28,9 @@ public class DriverFactory {
         DesiredCapabilities configuracoes = new DesiredCapabilities();
         configuracoes.setCapability("platformName", "Android"); //
         configuracoes.setCapability("appium:automationName", "UiAutomator2");
-        configuracoes.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
+//        configuracoes.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
 //        configuracoes.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
+        configuracoes.setCapability("appium:deviceName","9a3761b6");
         configuracoes.setCapability("appium:app", "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk"); // base path do apk
         configuracoes.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
 //        configuracoes.setCapability("appium:fullReset", "true");
@@ -48,7 +48,7 @@ public class DriverFactory {
             throw new RuntimeException(e);
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Constants.TOAST_TIMEOUT);
 
     }
 

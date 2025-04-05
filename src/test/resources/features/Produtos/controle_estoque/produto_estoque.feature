@@ -2,28 +2,36 @@
 
 
 Funcionalidade: estoque de produto
-  No PDV mobile, é possível configurar no cadastro de produto se um determinado produto pode ou não ser vendido com estoque negativo.
-  A validação é feita no momento em que o produto é pressionado.
+  Permissão do funcionário: Se o funcionário tem permissão, a venda é permitida, independentemente das configurações do PDV e do produto.
+  Configuração do PDV: Se o funcionário não tem permissão, mas o PDV permite, a venda pode ser permitida se o produto também estiver configurado para permitir.
+  Configuração do produto: Se o funcionário não tem permissão e o PDV não permite, a configuração do produto não tem efeito.
 
 
-
-  Contexto: pdv configurado e o usuario logado
-    Dado que o pdv esteja configurado e logado
-    Entao é exibido o menu inicial
+  Contexto:
+    Dado que o pay esteja conectado no servidor
 
 
-
-  Cenario: produto que nao permite vender estoque negativo
-    Dado um produto com estoque negativo
+  Cenario: funcionario com permissao para vender produtos com estoque negativo, pdv e produto sem permissao
+    Dado um pdv sem permissao
+    E um funcionario com permissao
+    E um produto sem permissao
     Quando pressionado para informar a quantidade
-    Entao é exibido um toast de estoque insuficiente
+    Entao é possível realizar o fluxo de venda
 
-  Cenario: produto com estoque zerado
-    Dado um produto com estoque zerado
-    Quando pressionado para informar a quantidade
-    Entao é exibido um toast de estoque insuficiente
 
-  Cenario: produto que permite vender com estoque negativo
-    Dado um produto que permite a venda com estoque negativo
+
+  Cenario: funcionario sem permissao para vender produtos com estoque negativo, pdv e produto com permissao
+    Dado um pdv com permissao
+    E um funcionario com permissao
+    E um produto com permissao
     Quando pressionado para informar a quantidade
-    Entao é exibido a tela de informar quantidade
+    Entao é possível realizar o fluxo de venda
+
+
+
+  Cenario: funcionario e pdv sem permissao para vender produtos com estoque negativo, produto com permissao
+    Dado um pdv sem permissao
+    E um funcionario sem permissao
+    E um produto com permissao
+    Quando pressionado para informar a quantidade
+    Entao é possível realizar o fluxo de venda

@@ -1,8 +1,8 @@
-package com.test.page.produtos.listaProdutos;
+package com.test.page.produtos.lista_grupos_produtos;
 
 import com.test.page.BasePage;
 
-public class ListaProdutosPage extends BasePage {
+public class ListaGruposDeProdutosPage extends BasePage {
 
 
 

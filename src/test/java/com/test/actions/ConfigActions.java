@@ -4,7 +4,6 @@ import com.test.page.BasePage;
 import com.test.page.config.ConfigPage;
 import com.test.page.MasterPageFactory;
 import io.appium.java_client.AppiumBy;
-
 import static com.test.page.BasePage.clicar;
 import static com.test.page.BasePage.digitar;
 
@@ -47,9 +46,10 @@ public class ConfigActions {
         configPage().selecionarPDV(nomePDV);
 
         BasePage.scrollUp();
+
         clicar(AppiumBy
                 .xpath
-                        ("//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[10]/android.widget.Button"));
+                        ("//android.widget.TextView[@text=\"Confirmar\"]"));
     }
 
     public static void pressionarBotaoVoltarTelaLogin() {

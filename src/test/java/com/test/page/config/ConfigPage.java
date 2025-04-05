@@ -39,22 +39,6 @@ public class ConfigPage extends BasePage {
         clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Configurar IP\"]"));
     }
 
-    public void digitarIP(String ip, String porta) {
-        // Divide o IP pelos pontos
-        String[] ipParts = ip.split("\\.");
-        for (int i = 0; i < ipParts.length; i++) {
-            digitar(
-                    AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(" + i + ")"),
-                    ipParts[i]
-            );
-        }
-
-        // Preenche o campo da porta (assumindo que é o 4º campo de EditText)
-        digitar(
-                AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(4)"),
-                porta
-        );
-    }
 
     public void pressionarBotaoConfirmarIP() {
         clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Confirmar\"]"));
