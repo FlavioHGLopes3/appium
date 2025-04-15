@@ -1,15 +1,15 @@
 package com.test.actions.produtos;
 
 import com.test.page.MasterPageFactory;
-import com.test.page.produtos.lista_grupos_produtos.ListaGruposDeProdutosPage;
+import com.test.page.produtos.lista_grupos.ListaGruposPage;
 import io.appium.java_client.AppiumBy;
 
 import static com.test.page.BasePage.clicar;
 
 public class ListaGruposActions {
 
-    public static ListaGruposDeProdutosPage listaGruposDeProdutosPage(){
-        return MasterPageFactory.getPage(ListaGruposDeProdutosPage.class);
+    public static ListaGruposPage listaGruposDeProdutosPage(){
+        return MasterPageFactory.getPage(ListaGruposPage.class);
     }
 
     public static void validatePage() {

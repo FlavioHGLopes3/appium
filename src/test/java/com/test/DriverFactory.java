@@ -1,16 +1,19 @@
 package com.test;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 
 @Slf4j
 public class DriverFactory {
 
+    private static final String APK_PATH = "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk";
+
+    private static final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
 
     public static AppiumDriver driver;
 
@@ -25,37 +28,44 @@ public class DriverFactory {
 
     private static void createDriver()  {
 
-        DesiredCapabilities configuracoes = new DesiredCapabilities();
-        configuracoes.setCapability("platformName", "Android"); //
-        configuracoes.setCapability("appium:automationName", "UiAutomator2");
-//        configuracoes.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
-//        configuracoes.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
-        configuracoes.setCapability("appium:deviceName","9a3761b6");
-        configuracoes.setCapability("appium:app", "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk"); // base path do apk
-        configuracoes.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
-//        configuracoes.setCapability("appium:fullReset", "true");
+        DesiredCapabilities caps = new DesiredCapabilities();
 
-        URI urlConexao = null;
-        try {
-            urlConexao = new URI("http://127.0.0.1:4723");
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        caps.setCapability("platformName", "android"); //
+        caps.setCapability("appium:automationName", "uiautomator2");
+        caps.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
+//        caps.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
+//        caps.setCapability("appium:deviceName","9a3761b6");
+        caps.setCapability("appium:app", APK_PATH ); // base path do apk
+        caps.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
 
         try {
-            driver = new AppiumDriver(urlConexao.toURL(), configuracoes);
+            log.info("Caminho do APK: " + APK_PATH);
+
+            driver = new AndroidDriver(new URL(APPIUM_SERVER_URL), caps);
+            log.info("Sessão criada com sucesso");
+
         } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            log.error("URL do Appium inválida: " + APPIUM_SERVER_URL, e);
+            throw new RuntimeException("Falha ao criar driver", e);
+        } catch (Exception e) {
+            log.error("Erro ao iniciar sessão do Appium", e);
+            throw new RuntimeException("Falha ao iniciar sessão", e);
         }
 
         driver.manage().timeouts().implicitlyWait(Constants.TOAST_TIMEOUT);
 
     }
 
-    public static void KillDriver() {
+    public static void killDriver() {
         if (driver != null) {
-            driver.quit();
-            driver = null;
+            try {
+                driver.quit();
+                log.info("Driver finalizado com sucesso");
+            } catch (Exception e) {
+                log.error("Erro ao finalizar driver", e);
+            } finally {
+                driver = null;
+            }
         }
     }
 }

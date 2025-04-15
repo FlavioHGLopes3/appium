@@ -1,6 +1,6 @@
 # language: pt
 
-
+@Estoque
 Funcionalidade: estoque de produto
   Permissão do funcionário: Se o funcionário tem permissão, a venda é permitida, independentemente das configurações do PDV e do produto.
   Configuração do PDV: Se o funcionário não tem permissão, mas o PDV permite, a venda pode ser permitida se o produto também estiver configurado para permitir.

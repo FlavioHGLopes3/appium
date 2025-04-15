@@ -1,5 +1,6 @@
 package com.test.steps.login;
 
+import com.test.Constants;
 import com.test.actions.ConfigActions;
 import com.test.actions.LoginActions;
 import com.test.actions.MenuPageActions;
@@ -51,7 +52,7 @@ public class LoginSteps {
         LoginActions.validatePage();
         LoginActions.acessarAlterarConfiguracoes();
         ConfigActions.validatePage();
-        ConfigActions.configurarIP("192.168.010.198","8081");
+        ConfigActions.configurarIP(Constants.PC_IP_ADDRESS,Constants.PC_PORT);
         ConfigActions.selecionarPDVporTEF("GETNET");
         ConfigActions.pressionarBotaoVoltarTelaLogin();
     }
