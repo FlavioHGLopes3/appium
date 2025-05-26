@@ -28,16 +28,6 @@ public class ProdutosSteps {
 
 
 
-
-
-    @Dado("um produto com estoque negativo")
-    public void um_produto_com_estoque_negativo() {
-        log.info("Selecionando um produto com estoque negativo");
-        MenuPageActions.acessarProdutos();
-        ListaGruposActions.validatePage();
-        ListaGruposActions.selecionarGrupoProduto("bebidas");
-    }
-
     @Quando("pressionado para informar a quantidade")
     public void pressionado_para_informar_o_item() {
         assertTrue(
@@ -56,27 +46,6 @@ public class ProdutosSteps {
     }
 
 
-    @Dado("um produto que permite a venda com estoque negativo")
-    public void um_produto_que_permite_venda_com_estoque_negativo() {
-        log.info("Selecionando um produto com estoque positivo");
-
-    }
-
-
-    @Entao("é exibido a tela de informar quantidade")
-    public void e_exibido_a_tela_de_informar_quantidade() {
-
-    }
-
-    @Dado("um produto com estoque zerado")
-    public void um_produto_com_estoque_zerado() {
-
-    }
-
-    @E("o usuario ja esteja logado")
-    public void o_usuario_ja_esteja_logado() {
-
-    }
 
     @Dado("um pdv sem permissao")
     public void um_pdv_sem_permissao() {

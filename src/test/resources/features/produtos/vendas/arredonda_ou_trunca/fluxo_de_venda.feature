@@ -1,6 +1,6 @@
 # language: pt
 
-
+# banco utilizado: truncamento
 
 Funcionalidade: Pay possui a condição de realizar pagamentos de forma pacial
   É possivel realizar a venda de X produtos selecionados
