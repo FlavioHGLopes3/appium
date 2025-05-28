@@ -11,6 +11,7 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import lombok.extern.slf4j.Slf4j;
 
+import static com.test.Constants.PC_IP_ADDRESS;
 import static org.junit.Assert.assertTrue;
 
 @Slf4j
@@ -23,7 +24,7 @@ public class ProdutosSteps {
         LoginActions.validatePage();
         LoginActions.acessarAlterarConfiguracoes();
         ConfigActions.validatePage();
-        ConfigActions.configurarIP("192.168.018.172","8081");
+        ConfigActions.configurarIP(PC_IP_ADDRESS,"8081");
     }
 
 
@@ -47,36 +48,7 @@ public class ProdutosSteps {
 
     }
 
-    @Entao("é exibido um toast de estoque insuficiente")
-    public void é_exibido_um_toast_de_estoque_insuficiente() {
-        assertTrue("Toast de estoque insuficiente não foi exibido",
-                ListaProdutosActions
-                        .toastGetMessage("Produto com estoque insuficiente."));
 
-    }
-
-
-    @Dado("um produto que permite a venda com estoque negativo")
-    public void um_produto_que_permite_venda_com_estoque_negativo() {
-        log.info("Selecionando um produto com estoque positivo");
-
-    }
-
-
-    @Entao("é exibido a tela de informar quantidade")
-    public void e_exibido_a_tela_de_informar_quantidade() {
-
-    }
-
-    @Dado("um produto com estoque zerado")
-    public void um_produto_com_estoque_zerado() {
-
-    }
-
-    @E("o usuario ja esteja logado")
-    public void o_usuario_ja_esteja_logado() {
-
-    }
 
     @Dado("um pdv sem permissao")
     public void um_pdv_sem_permissao() {

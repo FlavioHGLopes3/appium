@@ -1,5 +1,6 @@
 package com.test.page;
 
+import com.test.Constants;
 import com.test.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -95,10 +96,14 @@ public class BasePage {
 
     }
 
+    public void validateElementPresence(WebElement element) { // pode utilizar os elementos mapeados diretamente na page sem precisar informar o xpath
+        element.click();
+    }
+
 
     public static boolean toastGetMessage(String mensagemEsperada) {
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(getDriver(), Constants.TOAST_TIMEOUT);
             WebElement toast = wait.until(
                     ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[1]"))
             );

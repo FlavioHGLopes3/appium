@@ -26,6 +26,10 @@ public class ListaProdutosActions extends BasePage {
         clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"" + nomeProdutoUpper + "\"]"));
     }
 
+    public static void confirmarProduto() {
+        clicar(listaProdutosDoGrupoPage().getBotaoConfirmarCard());
+    }
+
     public static boolean verificarSeCardFoiExibido () {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(1));

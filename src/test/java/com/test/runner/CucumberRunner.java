@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = { "progress", "html:target/cucumber-reports.html"},
-        features = {"src/test/resources/features/login",
+        features = {"src/test/resources/features/Login",
                 "src/test/resources/features/produtos"},
         glue = {"com.test"},
-        tags = "@Estoque"
+        tags = "@Login,@Rateio"
 )
 
 

@@ -13,6 +13,8 @@ public class DriverFactory {
 
     private static final String APK_PATH = "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk";
 
+    private static final String APK_GERAL_PATH = "C:\\Users\\TesteQA2\\Documents\\appium\\src\\test\\resources\\apks\\app-geral-debug.apk";
+
     private static final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
 
     public static AppiumDriver driver;
@@ -32,14 +34,14 @@ public class DriverFactory {
 
         caps.setCapability("platformName", "android"); //
         caps.setCapability("appium:automationName", "uiautomator2");
-        caps.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
-//        caps.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
+//        caps.setCapability("appium:deviceName","emulator-5554"); // emulator-5554 caso utilizar emuladores
+        caps.setCapability("appium:deviceName","PBF921CE70531"); // getnet p2
 //        caps.setCapability("appium:deviceName","9a3761b6");
-        caps.setCapability("appium:app", APK_PATH ); // base path do apk
+        caps.setCapability("appium:app", APK_GERAL_PATH ); // base path do apk
         caps.setCapability("appium:autoGrantPermissions", "true"); // inicia o apk com as permissoes de Manifest.permission já autorizadas
 
         try {
-            log.info("Caminho do APK: " + APK_PATH);
+            log.info("Caminho do APK: " + APK_GERAL_PATH);
 
             driver = new AndroidDriver(new URL(APPIUM_SERVER_URL), caps);
             log.info("Sessão criada com sucesso");

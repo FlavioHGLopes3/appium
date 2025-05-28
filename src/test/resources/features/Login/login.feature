@@ -1,6 +1,8 @@
 # language: pt
+# necessario que o pdv safrapay esteja com a chave transferencia bancaria 0
 
 
+@Login
 Funcionalidade: realizando login
   Somente será realizado login se tef_tipotef
   estiver corretamente configurada e se as credenciais

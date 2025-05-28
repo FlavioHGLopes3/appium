@@ -1,7 +1,7 @@
 # language: pt
 
 
-
+@Rateio
 Funcionalidade: Pay possui a condição de realizar pagamentos de forma pacial
   É possivel realizar a venda de X produtos selecionados
 
@@ -18,3 +18,4 @@ Funcionalidade: Pay possui a condição de realizar pagamentos de forma pacial
     E efetuar pagamento de 5 reais
     Entao o saldo restante deve exibir 13 reais
     E demais prazos devem exibir 13 reais
+    E deve ser possivel finalizar a venda lançando o pagamento exibido

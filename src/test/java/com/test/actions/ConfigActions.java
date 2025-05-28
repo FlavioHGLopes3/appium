@@ -46,6 +46,7 @@ public class ConfigActions {
         configPage().selecionarPDV(nomePDV);
 
         BasePage.scrollUp();
+        BasePage.scrollUp();
 
         clicar(AppiumBy
                 .xpath
