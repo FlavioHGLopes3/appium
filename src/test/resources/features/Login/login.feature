@@ -1,5 +1,8 @@
 # language: pt
 # necessario que o pdv safrapay esteja com a chave transferencia bancaria 0
+# update configpista
+# set valor_configuracao = '0' where codpdv = '014'
+# and chave_configuracao = 'PAY_PRAZO_PADRAO_TRANSFERENCIA_PIX'
 
 
 @Login

@@ -27,9 +27,9 @@ public class LoginActions extends BasePage {
     }
 
     public static void realizarLogin(String usuario, String senha) {
-        digitar(AppiumBy.xpath("//android.widget.EditText[@text=\"00000\"]"), usuario);
-        digitar(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"), senha);
-        clicar(AppiumBy.xpath("//android.widget.TextView[@text=\"Entrar\"]"));
+        digitar(loginPage().getCampoUsuario(),usuario);
+        digitar(loginPage().getCampoSenha(),senha);
+        clicar(loginPage().getBotaoEntrar());
     }
 
 

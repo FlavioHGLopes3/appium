@@ -33,6 +33,10 @@ public class BasePage {
         getDriver().findElement(appiumBy).sendKeys(texto);
     }
 
+    public static void digitar(WebElement element, String texto ) { // pode utilizar os elementos mapeados diretamente na page sem precisar informar o xpath
+        element.click();
+    }
+
     public String obterTexto(By appiumBy) {
         return getDriver().findElement(appiumBy).getText();
     }

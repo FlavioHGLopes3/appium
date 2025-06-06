@@ -4,7 +4,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -13,7 +12,7 @@ public class DriverFactory {
 
     private static final String APK_PATH = "D:\\appium\\src\\test\\resources\\apks\\app-play_store-debug.apk";
 
-    private static final String APK_GERAL_PATH = "C:\\Users\\TesteQA2\\Documents\\appium\\src\\test\\resources\\apks\\app-geral-debug.apk";
+    private static final String APK_GERAL_PATH = "C:\\Appium\\appium\\src\\test\\resources\\apks\\app-geral-debug.apk";
 
     private static final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
 

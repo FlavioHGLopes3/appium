@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features/Login",
                 "src/test/resources/features/produtos"},
         glue = {"com.test"},
-        tags = "@Login,@Rateio"
+        tags = "@Login"
 )
 
 

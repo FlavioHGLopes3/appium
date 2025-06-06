@@ -10,10 +10,10 @@ import org.openqa.selenium.WebElement;
 @NoArgsConstructor
 public class LoginPage extends BasePage {
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Entrar\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"campoUsuario\"]")
     private WebElement botaoEntrar;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"00000\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"campoUsuario\"]")
     private WebElement campoUsuario;
 
     @AndroidFindBy(xpath = "new UiSelector().className(\"android.widget.EditText\").instance(1)")
