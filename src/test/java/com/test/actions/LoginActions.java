@@ -6,6 +6,7 @@ import com.test.page.MasterPageFactory;
 import com.test.page.login.LoginPage;
 import com.test.page.menu.MenuPage;
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

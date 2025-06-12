@@ -8,7 +8,7 @@ public class Constants {
 //    public static final Duration LONG_TIMEOUT = Duration.ofSeconds(60);
 
 
-    public static final String PC_IP_ADDRESS = "192.168.011.176";
+    public static final String PC_IP_ADDRESS = "192.168.011.074";
     public static final String PC_PORT = "8081";
 
 }
