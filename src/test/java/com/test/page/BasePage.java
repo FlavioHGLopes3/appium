@@ -34,7 +34,7 @@ public class BasePage {
     }
 
     public static void digitar(WebElement element, String texto ) { // pode utilizar os elementos mapeados diretamente na page sem precisar informar o xpath
-        element.sendKeys();
+        element.sendKeys(texto);
     }
 
     public String obterTexto(By appiumBy) {
